@@ -1,0 +1,92 @@
+<!DOCUMENT html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>云词图</title>
+<script src="echarts.min.js"></script>
+<script src="echarts-wordcloud.min.js"></script>
+</head>
+<body>
+        <style>
+            html, body{
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+            #main{
+                width: 1730px;
+                height: 820px;
+                background: rgba(70, 120, 200, 0.2)
+            }
+        </style>
+        <div id='main'></div>
+        <script>
+            var chart = echarts.init(document.getElementById('main'));
+ 
+            var option = {
+                tooltip: {},
+                series: [ {
+                    type: 'wordCloud',
+                    gridSize: 1,
+                    sizeRange: [12, 50],
+                    rotationRange: [-90, 90],
+                    shape: 'circle',
+                    drawOutOfBound: true,
+                    textStyle: {
+                        normal: {
+                            color: function() {
+                                return 'rgb(' + [
+                                    Math.round(Math.random() * 255),
+                                    Math.round(Math.random() * 255),
+                                    Math.round(Math.random() * 255)
+                                ].join(',') + ')';
+                            }
+                        },
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowColor: '#333'
+                        }
+                    },
+                    data: [
+				{name: '我们', value: 11000},
+				{name: '真的', value: 9000},
+				{name: '疫情', value: 9000},
+				{name: '你们', value: 8000},
+				{name: '医生', value: 7000},
+				{name: '感谢', value: 7000},
+				{name: '护士', value: 6000},
+				{name: '一个', value: 6000},
+				{name: '没有', value: 6000},
+				{name: '但是', value: 5000},
+				{name: '武汉', value: 5000},
+				{name: '看到', value: 5000},
+				{name: '付出', value: 4000},
+				{name: '因为', value: 4000},
+				{name: '辛苦', value: 4000},
+				{name: '片酬', value: 4000},
+				{name: '致敬', value: 3000},
+				{name: '知道', value: 3000},
+				{name: '一直', value: 2000},
+				{name: '大家', value: 2000},
+				{name: '时候', value: 986},
+				{name: '生命', value: 913},
+				{name: '恐惧', value: 791},
+				{name: '演员', value: 773},
+				{name: '出演', value: 755},
+				{name: '不想', value: 708},
+				{name: '前线', value: 673},
+				{name: '感人', value: 613},
+				{name: '点赞', value: 509},
+				{name: '白衣天使', value: 464},
+				]
+
+
+                } ]
+            };
+ 
+            chart.setOption(option);
+ 
+            window.onresize = chart.resize;
+        </script>
+    </body>
+</html>
